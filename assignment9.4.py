@@ -12,9 +12,7 @@ for line in file:
         continue
     words = line.split()
     email = words[1]
-    email = email.split()
-    for mail in email:
-        mails[mail] = mails.get(mail,0) + 1
+    mails[email] = mails.get(email,0) + 1
 
 largest = -1
 theword = None
