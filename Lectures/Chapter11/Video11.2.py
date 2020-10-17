@@ -1,6 +1,6 @@
 import re
 x = 'My 2 favorite numbers are 19 and 42'
-y = re.findall('[0-9]+', x)     # [0-9]+ -> satırdaki sayılara bakıyor.   
+y = re.findall('[0-9]+', x)    # [0-9]+ -> satırdaki sayılara bakıyor.   
 print(y)    # Sonuçta çıkan sayılar liste içinde string olarak çıkıyor.
 y = re.findall('[AEIOU]+', x)   # [AEIOU]+ -> satırdaki büyük sesli harflere bakıyor.
 print(y)
