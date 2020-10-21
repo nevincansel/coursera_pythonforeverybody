@@ -28,5 +28,4 @@ print('Retrieved', len(data), 'characters')
 js = json.loads(data)
 
 place_id = js['results'][0]['place_id']
-lng = js['results'][0]['geometry']['location']['lng']
 print('Place Id', place_id)
