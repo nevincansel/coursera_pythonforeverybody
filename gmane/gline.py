@@ -32,7 +32,7 @@ print("Top 10 Organizations")
 print(orgs)
 
 counts = dict()
-years = list()
+months = list()
 # cur.execute('SELECT id, guid,sender_id,subject_id,sent_at FROM Messages')
 for (message_id, message) in list(messages.items()):
     sender = message[1]
@@ -40,25 +40,25 @@ for (message_id, message) in list(messages.items()):
     if len(pieces) != 2 : continue
     dns = pieces[1]
     if dns not in orgs : continue
-    year = message[3][:4]
-    if year not in years : years.append(year)
-    key = (year, dns)
+    month = message[3][:7]
+    if month not in months : months.append(month)
+    key = (month, dns)
     counts[key] = counts.get(key,0) + 1
 
-years.sort()
+months.sort()
 # print counts
 # print months
 
 fhand = open('gline.js','w')
-fhand.write("gline = [ ['Year'")
+fhand.write("gline = [ ['month'")
 for org in orgs:
     fhand.write(",'"+org+"'")
 fhand.write("]")
 
-for year in years:
-    fhand.write(",\n['"+year+"'")
+for month in months:
+    fhand.write(",\n['"+month+"'")
     for org in orgs:
-        key = (year, org)
+        key = (month, org)
         val = counts.get(key,0)
         fhand.write(","+str(val))
     fhand.write("]");
